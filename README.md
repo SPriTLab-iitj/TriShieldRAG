@@ -2,11 +2,11 @@
 
 <div align="center">
 
-# 🛡️ PoisonedRAG + RAG-Shield (The 3R's)
+# 🛡️ PoisonedRAG + RAG-Shield aka TriShieldRAG (The 3R's)
 
 ### Break a state-of-the-art RAG poisoning attack — then build the defense its own authors said didn't exist yet.
 
-*Five malicious documents can hijack an AI's answer ~90% of the time. RAG-Shield drives that to near-zero with three independent layers of defense.*
+*Five malicious documents can hijack an AI's answer ~90% of the time. RAG-Shield aka TriShieldRAG drives that to near-zero with three independent layers of defense.*
 
 <br>
 
@@ -23,7 +23,7 @@
 
 <br>
 
-**`Attack Success: ~100%`** &nbsp;➜&nbsp; **`RAG-Shield: ~0%`**
+**`Attack Success: ~100%`** &nbsp;➜&nbsp; **`RAG-Shield aka TriShieldRAG: ~0%`**
 
 <br>
 
@@ -67,7 +67,7 @@
 
 RAG (Retrieval-Augmented Generation) lets an LLM answer using documents fetched from an external knowledge base. The **PoisonedRAG** paper (USENIX Security 2025) shows that injecting just **5 malicious documents** into a knowledge base of **millions** makes the LLM output an attacker-chosen wrong answer **~90% of the time** — and that existing defenses don't stop it.
 
-This project (1) **reproduces** that attack and (2) builds **RAG-Shield**, a **3-ring defense-in-depth** pipeline that drops attack success from ~90% to ~13% while preserving normal-query accuracy.
+This project (1) **reproduces** that attack and (2) builds **RAG-Shield aka TriShieldRAG**, a **3-ring defense-in-depth** pipeline that drops attack success from ~90% to ~13% while preserving normal-query accuracy.
 
 The whole thing runs **instantly in demo mode** (no API keys, no GPU) and upgrades to **live mode** (real FAISS index + Claude/LLaMA) with a single environment flag.
 
@@ -82,11 +82,11 @@ The whole thing runs **instantly in demo mode** (no API keys, no GPU) and upgrad
 <table>
 <tr>
 <td width="50%" align="center"><b>🔴 Attack — no defense</b></td>
-<td width="50%" align="center"><b>🛡️ Defense — RAG-Shield on</b></td>
+<td width="50%" align="center"><b>🛡️ Defense — RAG-Shield aka TriShieldRAG on</b></td>
 </tr>
 <tr>
 <td><img src="assets/attack_flow.svg" alt="PoisonedRAG attack: 5 poison docs hijack the answer" width="100%"></td>
-<td><img src="assets/defense_flow.svg" alt="RAG-Shield: three rings block the attack" width="100%"></td>
+<td><img src="assets/defense_flow.svg" alt="RAG-Shield aka TriShieldRAG: three rings block the attack" width="100%"></td>
 </tr>
 <tr>
 <td align="center">5 poison docs out-rank the truth → LLM answers <b>"Nikola Jones"</b> (wrong). <b>ASR ~100%</b></td>
@@ -177,13 +177,13 @@ Full analysis: [docs/gap_and_fix.md](docs/gap_and_fix.md)
 
 <a id="4-our-solution-rag-shield"></a>
 
-## 4. Our Solution — RAG-Shield
+## 4. Our Solution — RAG-Shield aka TriShieldRAG
 
-RAG-Shield places **three independent rings** at three stages of the pipeline. To succeed, poison must defeat **all three at once**.
+RAG-Shield aka TriShieldRAG places **three independent rings** at three stages of the pipeline. To succeed, poison must defeat **all three at once**.
 
 ```
   +==================================================================+
-  |                          RAG-SHIELD                              |
+  |                          RAG-Shield aka TriShieldRAG             |
   +==================================================================+
 
    document being ADDED            query ARRIVES           answer being FORMED
@@ -225,7 +225,7 @@ Queries 3 different LLMs with the same context — **Claude** (Anthropic), **Mis
 
 Full data flow with the rings engaged:
 
-<p align="center"><img src="assets/pipeline_flow.svg" alt="RAG-Shield end-to-end pipeline: query -> retriever -> Ring 1 Ingest Guard -> Ring 2 Retrieval Scorer -> Ring 3 Cross-LLM Consensus -> trusted answer" width="600"></p>
+<p align="center"><img src="assets/pipeline_flow.svg" alt="RAG-Shield aka TriShieldRAG end-to-end pipeline: query -> retriever -> Ring 1 Ingest Guard -> Ring 2 Retrieval Scorer -> Ring 3 Cross-LLM Consensus -> trusted answer" width="600"></p>
 
 The orchestrator is `ragshield_core/rag_shield.py`. Two entry points:
 - `answer(question, defense=True/False, candidates=[...])` — returns the answer.
@@ -353,9 +353,10 @@ DEMO_MODE=1 python demo_cli.py "Who founded Tesla Motors?"
 
 Expected output:
 ```
-[NO DEFENSE]  -> Nikola Jones          (attack succeeds)
-[RAG-SHIELD]  -> Martin Eberhard        (defense restores truth)
-   Ring1 blocked=3  Ring2 dropped=0  Ring3 agreement=1.0
+[NO DEFENSE]                   -> Nikola Jones           (attack succeeds)
+[RAG-Shield aka TriShieldRAG]  -> Martin Eberhard        (defense restores truth)
+
+Ring1 blocked=3  Ring2 dropped=0  Ring3 agreement=1.0
 ```
 
 [Back to top](#top)
@@ -399,10 +400,10 @@ The left sidebar has the landing page plus 5 pages. The top tags show the mode (
 | Page | Proves | What you do | What you see |
 |------|--------|-------------|--------------|
 | **Attack Demo** | the problem exists | "Run attack (no defense)" | poison docs (red) out-rank clean docs; LLM returns the wrong answer |
-| **Defense Demo** | the fix works | "Run with RAG-Shield" | ring-by-ring trace: Ring1 blocked count, Ring2 dropped + trust, Ring3 agreement %; correct answer restored |
-| **Side-by-Side** | instant contrast | "Compare" | plain RAG (wrong) next to RAG-Shield (right), together |
+| **Defense Demo** | the fix works | "Run with RAG-Shield aka TriShieldRAG" | ring-by-ring trace: Ring1 blocked count, Ring2 dropped + trust, Ring3 agreement %; correct answer restored |
+| **Side-by-Side** | instant contrast | "Compare" | plain RAG (wrong) next to RAG-Shield aka TriShieldRAG (right), together |
 | **Forensic Explorer** | how it caught it | expand any doc | the actual Ring1 scores (perplexity/pattern/outlier), Ring2 trust, Ring3 panel JSON |
-| **Results Dashboard** | the numbers | "Run evaluation" | live ASR bar chart (No Defense / Paper's Defenses / RAG-Shield) + per-question table |
+| **Results Dashboard** | the numbers | "Run evaluation" | live ASR bar chart (No Defense / Paper's Defenses / RRAG-Shield aka TriShieldRAG) + per-question table |
 
 **Presentation order:** Attack -> Side-by-Side -> Defense -> Forensic -> Dashboard (problem, contrast, mechanism, proof, numbers).
 
@@ -464,12 +465,12 @@ Computed live by `evaluation/run_experiments.py` over the target questions:
 ```
   Attack Success Rate (%)
 
-  No Defense        |##################################  ~91
-  Paper's Defenses* |##########                          ~29
-  RAG-Shield (Ours) |####                                ~13
+  No Defense                         |##################################  ~91
+  Paper's Defenses*                  |##########                          ~29
+  RAG-Shield aka TriShieldRAG (Ours) |####                                ~13
 
   * illustrative placeholder until the full 30-question harness runs;
-    the No-Defense and RAG-Shield bars are computed live.
+    the No-Defense and RAG-Shield aka TriShieldRAG bars are computed live.
 ```
 
 - Holds across multiple LLM backends.
@@ -511,7 +512,7 @@ The professor's brief requires eight steps in order. The grade lives in steps 5-
 | 3 | Sharvan Vittala | G25AIT2099 | Attack mechanics, poison crafting; Ring 1 design |
 | 4 | Sudeb Ghosh | G25AIT2113 | Black/white-box attack deep-dive; Adversarial Test Cases |
 | 5 | Kosuru Yuvaraj | G25AIT2054 | Damage analysis & the gap; Ring 2 design |
-| 6 | Pujan Chakraborty | G25AIT2076 | RAG-Shield 3-ring design & blueprint; Evaluation Methodology |
+| 6 | Pujan Chakraborty | G25AIT2076 | RAG-Shield aka TriShieldRAG 3-ring design & blueprint; Evaluation Methodology |
 | 7 | Rohit Patel | G25AIT2089 | System Architecture & Implementation; Live Demo |
 | 8 | Vishnu Priya | G25AIT2128 | Frontend/UI review; Results Consolidation & Report |
 | 9 | Disha Singhania | G25AIT2031 | Environment setup & testing; Demo Validation; Documentation |

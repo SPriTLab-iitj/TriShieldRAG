@@ -1,0 +1,17 @@
+# --- core (always needed) ---
+python-dotenv>=1.0
+numpy>=1.24
+scikit-learn>=1.3
+streamlit>=1.32
+pandas>=2.0
+
+# --- real/live mode (DEMO_MODE=0) ---
+faiss-cpu>=1.7
+sentence-transformers>=2.6
+anthropic>=0.34
+openai>=1.30        # used for Ollama (OpenAI-compatible) and Azure OpenAI
+mistralai==1.3.1    # Mistral Small — Ring 3 third voice
+
+# --- optional: building the KB ---
+datasets>=2.18
+tqdm>=4.66

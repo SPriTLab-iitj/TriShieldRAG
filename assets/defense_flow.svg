@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgD" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#0a1f1a"/>
+    </linearGradient>
+    <marker id="arrD" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#34d399"/>
+    </marker>
+  </defs>
+  <rect width="900" height="420" rx="14" fill="url(#bgD)"/>
+  <text x="30" y="42" fill="#34d399" font-size="22" font-weight="700">🛡️ With RAG-Shield — the attack is stopped</text>
+  <text x="30" y="66" fill="#9ca3af" font-size="13">Three independent rings; poison must beat all three at once</text>
+
+  <!-- question -->
+  <rect x="30" y="180" width="130" height="60" rx="10" fill="#1e293b" stroke="#475569"/>
+  <text x="95" y="205" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="600">"Who founded</text>
+  <text x="95" y="223" fill="#93c5fd" font-size="12" text-anchor="middle">Tesla?"</text>
+
+  <!-- Ring 1 -->
+  <rect x="190" y="150" width="160" height="120" rx="10" fill="#11203b" stroke="#3b82f6" stroke-width="1.5"/>
+  <rect x="190" y="150" width="160" height="28" rx="10" fill="#1d4ed8"/>
+  <text x="270" y="169" fill="#dbeafe" font-size="13" text-anchor="middle" font-weight="700">RING 1 · Ingest</text>
+  <text x="270" y="198" fill="#cbd5e1" font-size="11" text-anchor="middle">perplexity · pattern</text>
+  <text x="270" y="214" fill="#cbd5e1" font-size="11" text-anchor="middle">· outlier</text>
+  <text x="270" y="244" fill="#f87171" font-size="12" text-anchor="middle" font-weight="700">✗ blocks 5 poison</text>
+  <text x="270" y="260" fill="#34d399" font-size="10" text-anchor="middle">re-fetches clean docs</text>
+
+  <!-- Ring 2 -->
+  <rect x="380" y="150" width="160" height="120" rx="10" fill="#0f2a1e" stroke="#22c55e" stroke-width="1.5"/>
+  <rect x="380" y="150" width="160" height="28" rx="10" fill="#15803d"/>
+  <text x="460" y="169" fill="#dcfce7" font-size="13" text-anchor="middle" font-weight="700">RING 2 · Retrieval</text>
+  <text x="460" y="198" fill="#cbd5e1" font-size="11" text-anchor="middle">provenance ·</text>
+  <text x="460" y="214" fill="#cbd5e1" font-size="11" text-anchor="middle">consistency</text>
+  <text x="460" y="244" fill="#86efac" font-size="12" text-anchor="middle" font-weight="700">trust re-rank</text>
+  <text x="460" y="260" fill="#86efac" font-size="10" text-anchor="middle">keeps clean sources</text>
+
+  <!-- Ring 3 -->
+  <rect x="570" y="150" width="170" height="120" rx="10" fill="#1e1633" stroke="#a78bfa" stroke-width="1.5"/>
+  <rect x="570" y="150" width="170" height="28" rx="10" fill="#7c3aed"/>
+  <text x="655" y="169" fill="#ede9fe" font-size="13" text-anchor="middle" font-weight="700">RING 3 · Consensus</text>
+  <text x="655" y="196" fill="#cbd5e1" font-size="10" text-anchor="middle">LLaMA · Phi · Gemma</text>
+  <text x="655" y="216" fill="#cbd5e1" font-size="10" text-anchor="middle">3 models vote</text>
+  <text x="655" y="244" fill="#c4b5fd" font-size="12" text-anchor="middle" font-weight="700">agree → answer</text>
+  <text x="655" y="260" fill="#c4b5fd" font-size="10" text-anchor="middle">disagree → re-ask</text>
+
+  <!-- answer -->
+  <rect x="765" y="174" width="115" height="72" rx="10" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+  <text x="822" y="200" fill="#a7f3d0" font-size="11" text-anchor="middle">Answer:</text>
+  <text x="822" y="220" fill="#34d399" font-size="13" text-anchor="middle" font-weight="700">Martin</text>
+  <text x="822" y="236" fill="#34d399" font-size="13" text-anchor="middle" font-weight="700">Eberhard ✓</text>
+
+  <!-- arrows -->
+  <line x1="160" y1="210" x2="184" y2="210" stroke="#34d399" stroke-width="2" marker-end="url(#arrD)"/>
+  <line x1="350" y1="210" x2="374" y2="210" stroke="#34d399" stroke-width="2" marker-end="url(#arrD)"/>
+  <line x1="540" y1="210" x2="564" y2="210" stroke="#34d399" stroke-width="2" marker-end="url(#arrD)"/>
+  <line x1="740" y1="210" x2="759" y2="210" stroke="#34d399" stroke-width="2" marker-end="url(#arrD)"/>
+
+  <text x="450" y="298" fill="#9ca3af" font-size="13" text-anchor="middle">Attack success rate</text>
+  <text x="450" y="320" fill="#34d399" font-size="18" font-weight="700" text-anchor="middle">~0%  —  defense-in-depth restores the truth</text>
+
+  <!-- mini legend -->
+  <text x="30" y="350" fill="#64748b" font-size="11">Each ring guards a different stage: ingest · retrieval · generation. Defeat one ≠ defeat all three.</text>
+  <text x="30" y="372" fill="#475569" font-size="11">ASR:  No-Defense ~100%   →   Paper's single-gate defenses ~29%   →   RAG-Shield ~13% (live: 0% on demo set)</text>
+</svg>

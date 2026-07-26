@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a1020"/><stop offset="1" stop-color="#2a0e16"/>
+    </linearGradient>
+    <marker id="arrA" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#f87171"/>
+    </marker>
+  </defs>
+  <rect width="900" height="360" rx="14" fill="url(#bgA)"/>
+  <text x="30" y="42" fill="#f87171" font-size="22" font-weight="700">🔴 Without RAG-Shield — the attack wins</text>
+  <text x="30" y="66" fill="#9ca3af" font-size="13">5 poison docs out-rank the truth and hijack the answer</text>
+
+  <!-- question -->
+  <rect x="30" y="110" width="150" height="60" rx="10" fill="#1e293b" stroke="#475569"/>
+  <text x="105" y="138" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">User asks:</text>
+  <text x="105" y="158" fill="#93c5fd" font-size="12" text-anchor="middle">"Who founded Tesla?"</text>
+
+  <!-- KB with poison -->
+  <rect x="250" y="86" width="220" height="190" rx="10" fill="#1e293b" stroke="#7f1d1d"/>
+  <text x="360" y="108" fill="#cbd5e1" font-size="13" text-anchor="middle" font-weight="600">Knowledge Base</text>
+  <rect x="268" y="120" width="184" height="26" rx="5" fill="#7f1d1d"/><text x="360" y="138" fill="#fecaca" font-size="11" text-anchor="middle">☠ POISON · "Nikola Jones" (0.80)</text>
+  <rect x="268" y="150" width="184" height="26" rx="5" fill="#7f1d1d"/><text x="360" y="168" fill="#fecaca" font-size="11" text-anchor="middle">☠ POISON · "Nikola Jones" (0.80)</text>
+  <rect x="268" y="180" width="184" height="26" rx="5" fill="#7f1d1d"/><text x="360" y="198" fill="#fecaca" font-size="11" text-anchor="middle">☠ POISON · "Nikola Jones" (0.80)</text>
+  <rect x="268" y="210" width="184" height="22" rx="5" fill="#334155"/><text x="360" y="226" fill="#64748b" font-size="10" text-anchor="middle">clean · "Martin Eberhard" (0.41)</text>
+  <rect x="268" y="236" width="184" height="22" rx="5" fill="#334155"/><text x="360" y="252" fill="#64748b" font-size="10" text-anchor="middle">clean · pushed out of top-5</text>
+
+  <!-- LLM -->
+  <rect x="540" y="110" width="150" height="60" rx="10" fill="#1e293b" stroke="#475569"/>
+  <text x="615" y="138" fill="#e2e8f0" font-size="13" text-anchor="middle" font-weight="600">LLM reads</text>
+  <text x="615" y="158" fill="#9ca3af" font-size="11" text-anchor="middle">only poison docs</text>
+
+  <!-- answer -->
+  <rect x="740" y="104" width="140" height="72" rx="10" fill="#450a0a" stroke="#f87171" stroke-width="2"/>
+  <text x="810" y="132" fill="#fca5a5" font-size="12" text-anchor="middle">Answer:</text>
+  <text x="810" y="154" fill="#f87171" font-size="15" text-anchor="middle" font-weight="700">Nikola Jones</text>
+  <text x="810" y="170" fill="#fca5a5" font-size="10" text-anchor="middle">✗ WRONG</text>
+
+  <!-- arrows -->
+  <line x1="180" y1="140" x2="244" y2="140" stroke="#f87171" stroke-width="2" marker-end="url(#arrA)"/>
+  <line x1="470" y1="140" x2="534" y2="140" stroke="#f87171" stroke-width="2" marker-end="url(#arrA)"/>
+  <line x1="690" y1="140" x2="734" y2="140" stroke="#f87171" stroke-width="2" marker-end="url(#arrA)"/>
+
+  <text x="450" y="318" fill="#9ca3af" font-size="13" text-anchor="middle">Attack success rate</text>
+  <text x="450" y="340" fill="#f87171" font-size="18" font-weight="700" text-anchor="middle">~100%  —  the model never sees the truth</text>
+</svg>

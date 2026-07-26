@@ -1,0 +1,7 @@
+# Demo mode ONLY — instant, no torch/faiss/networkx.
+# This is all you need to run: streamlit run frontend/app.py  (DEMO_MODE=1)
+python-dotenv>=1.0
+numpy>=1.24
+scikit-learn>=1.3
+pandas>=2.0
+streamlit>=1.32

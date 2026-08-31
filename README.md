@@ -55,8 +55,6 @@
 - [11. Demo Mode vs Live Mode](#11-demo-mode-vs-live-mode)
 - [12. Results](#12-results)
 - [13. The 8 Steps the Professor Requires](#13-the-8-steps-the-professor-requires)
-- [14. Troubleshooting](#15-troubleshooting)
-- [15. Links](#16-links)
 
 ---
 
@@ -497,39 +495,6 @@ The professor's brief requires eight steps in order. The grade lives in steps 5-
 | 8 | Demonstrate effectiveness | ✅ | [evaluation/](evaluation/) · live demo ([run_live.sh](run_live.sh)) |
 
 [Back to top](#top)
-
----
-
-<a id="14-troubleshooting"></a>
-
-## 14. Troubleshooting
-
-| Symptom | Fix |
-|---------|-----|
-| `networkx>=3.3` / torch install error | Your venv is Python < 3.10. Rebuild with 3.11: `rm -rf .venv && python3.11 -m venv .venv` |
-| venv `source` exit code 126 | Broken venv — same rebuild as above |
-| Streamlit stuck at `Email:` prompt | `.streamlit/config.toml` ships with `headless = true`; or run `printf '[general]\nemail = ""\n' > ~/.streamlit/credentials.toml` |
-| `localhost:8502` blank | Server didn't start — check the terminal for a traceback; `lsof -i :8502` to confirm it's listening |
-| Port busy | `--server.port 8503` (or `pkill -9 -f streamlit` to clear old ones) |
-| Python segfaults in live mode | Use Lite-Live (`RETRIEVER=tfidf`) via `./run_live.sh` — avoids the torch/faiss native crash on Apple Silicon |
-| `401 Unauthorized` from Mistral | Key from GCP/Vertex doesn't work with mistral.ai SDK. Get a free key at [console.mistral.ai](https://console.mistral.ai/api-keys) |
-| Ring 3 agreement unexpectedly low | Different LLMs phrase the same answer differently. Fixed in `ring3_consensus.py` v2 — candidate-aware grouping instead of exact string match |
-
-[Back to top](#top)
-
----
-
-<a id="15-links"></a>
-
-## 15. Links
-
-- **Project repo (this):** https://github.com/rpaut03l/poisonedrag-ragshield-group6-iitj
-- **🖼️ Presentation slides (PPTX):** https://github.com/rpaut03l/poisonedrag-ragshield-group6-iitj/blob/main/slides/CSL6010_Group6_PoisonedRAG_%26_RAGShield.pptx
-- **🎥 Video demo (live code execution):** https://drive.google.com/file/d/1Wx9n1rTxnZH5auIzjSbWRFMt-wZDFwhL/view?usp=share_link
-- **Paper (USENIX):** https://www.usenix.org/conference/usenixsecurity25/presentation/zou-poisonedrag
-- **arXiv:** https://arxiv.org/abs/2402.07867
-- **Official attack code:** https://github.com/sleeepeer/PoisonedRAG
-- **Our fork:** https://github.com/rpaut03l/sleeepeer_PoisonedRAG
 
 ---
 

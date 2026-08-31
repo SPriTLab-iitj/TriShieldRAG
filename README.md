@@ -501,29 +501,9 @@ The professor's brief requires eight steps in order. The grade lives in steps 5-
 
 ---
 
-<a id="14-team-group-6"></a>
+<a id="14-troubleshooting"></a>
 
-## 14. Team — Group 6
-
-| # | Member | ID | Contribution (story act + project work) |
-|---|--------|----|------------------------------------------|
-| 1 | Jeenal Chaudhary | G25AIT2027 | RAG fundamentals & pipeline; Intro + Background Research |
-| 2 | Amit Singh | G25AIT2007 | Threat model & problem framing; Attacker Assumptions |
-| 3 | Sharvan Vittala | G25AIT2099 | Attack mechanics, poison crafting; Ring 1 design |
-| 4 | Sudeb Ghosh | G25AIT2113 | Black/white-box attack deep-dive; Adversarial Test Cases |
-| 5 | Kosuru Yuvaraj | G25AIT2054 | Damage analysis & the gap; Ring 2 design |
-| 6 | Pujan Chakraborty | G25AIT2076 | RAG-Shield aka TriShieldRAG 3-ring design & blueprint; Evaluation Methodology |
-| 7 | Rohit Patel | G25AIT2089 | System Architecture & Implementation; Live Demo |
-| 8 | Vishnu Priya | G25AIT2128 | Frontend/UI review; Results Consolidation & Report |
-| 9 | Disha Singhania | G25AIT2031 | Environment setup & testing; Demo Validation; Documentation |
-
-[Back to top](#top)
-
----
-
-<a id="15-troubleshooting"></a>
-
-## 15. Troubleshooting
+## 14. Troubleshooting
 
 | Symptom | Fix |
 |---------|-----|
@@ -540,9 +520,9 @@ The professor's brief requires eight steps in order. The grade lives in steps 5-
 
 ---
 
-<a id="16-links"></a>
+<a id="15-links"></a>
 
-## 16. Links
+## 15. Links
 
 - **Project repo (this):** https://github.com/rpaut03l/poisonedrag-ragshield-group6-iitj
 - **🖼️ Presentation slides (PPTX):** https://github.com/rpaut03l/poisonedrag-ragshield-group6-iitj/blob/main/slides/CSL6010_Group6_PoisonedRAG_%26_RAGShield.pptx

@@ -499,5 +499,3 @@ The professor's brief requires eight steps in order. The grade lives in steps 5-
 ---
 
 *CSL6010 Cyber Security · Prof. Susil Kumar Mohanty · M.Tech AI · IIT Jodhpur*
-
-[Back to top](#top)

@@ -55,9 +55,8 @@
 - [11. Demo Mode vs Live Mode](#11-demo-mode-vs-live-mode)
 - [12. Results](#12-results)
 - [13. The 8 Steps the Professor Requires](#13-the-8-steps-the-professor-requires)
-- [14. Team — Group 6](#14-team-group-6)
-- [15. Troubleshooting](#15-troubleshooting)
-- [16. Links](#16-links)
+- [14. Troubleshooting](#15-troubleshooting)
+- [15. Links](#16-links)
 
 ---
 
